@@ -33,6 +33,28 @@ void Board::print(){
     }
 }
 
-bool Board::collision(int (*block)[5]){
-    return false;
+std::vector<int> Board::findFullRow(){
+    std::vector<int> res;
+    for(int i = 1; i < BOARDHEIGHT;i++){
+        blank = false;
+        for (int j = 1; j < BOARDWIDTH-1;j++){
+            blank |= (boardArray[i][j] == 0);
+        }
+        if (blank){
+            res.push_back(i);
+        }
+    }
+    return res;
+}
+
+void Board::deleteRow(int rowNum){
+    for(int i = rowNum; i < BOARDHEIGHT-1; i++){
+        for (int j = 1; j < BOARDWIDTH-1;j++){
+            boardArray[i][j] = boardArray[i+1][j]
+        }
+    }
+
+    for (int j = 1; j < BOARDWIDTH-1;j++){
+        boardArray[BOARDHEIGHT-1][j] = 0;
+    }
 }

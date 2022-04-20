@@ -4,7 +4,8 @@
 #define __BOARD_H__
 
 #include <stdio.h>
-
+#include <stdint.h>
+#include <vector>
 
 class Board{
     int boardArray[BOARDHEIGHT][BOARDWIDTH];
@@ -13,8 +14,11 @@ class Board{
     Board();
     void print();
     void draw();
-    bool collision(int (*block)[5]);
-    
+
+    bool valid(const uint8_t (*block)[5], uint8_t px, uint8_t py);
+    void deleteRow(int rowNum);
+    std::vector<int> findFullRow();
+
 };
 
 #endif

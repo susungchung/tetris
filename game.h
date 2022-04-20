@@ -24,8 +24,6 @@ class Game{
     // queue to store next piece
     std::queue<uint8_t> nextQueue;
 
-    
-
     void _addNewPieceType();
     uint8_t _getNextPieceType();
 
@@ -34,7 +32,7 @@ class Game{
     
     const uint8_t (*getPiece())[5];
 
-    void rotatePiece();
+    bool rotatePiece();
 
      
 };

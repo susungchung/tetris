@@ -231,6 +231,8 @@ Game::Game(Board* b){
     _addNewPieceType();
     pieceType = _getNextPieceType();
     pieceRotation = 0;
+    px = 6;
+    py = 0;
     for (int i = 0;i<3;i++){
         _addNewPieceType();
     }
@@ -257,5 +259,7 @@ void Game::rotatePiece(){
         pieceRotation = 0;
     }
     // TODO:: need to check if collision occur
-
+    // if (!board->valid(getPiece(),px,py)){
+        
+    // }
 }
